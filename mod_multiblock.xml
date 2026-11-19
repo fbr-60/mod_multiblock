@@ -1,0 +1,607 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension type="module" client="site" method="upgrade">
+    <name>mod_multiblock</name>
+    <author>Fbr</author>
+    <creationDate>2025-01-21</creationDate>
+    <copyright></copyright>
+    <license>GNU General Public License version 2 or later;</license>
+    <authorEmail>fdr41@mail.ru</authorEmail>
+    <authorUrl></authorUrl>
+    <version>1.1.0</version>
+    <description>MOD_MULTIBLOCK_DESC</description>
+    <namespace path="src">Joomla\Module\Multiblock</namespace>
+    <files>
+        <folder module="mod_multiblock">services</folder>
+        <folder>src</folder>
+        <folder>tmpl</folder>
+    </files>
+    <languages>
+			<language tag="ru-RU">language/ru-RU/mod_multiblock.ini</language>
+			<language tag="ru-RU">language/ru-RU/mod_multiblock.sys.ini</language>
+    </languages>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+		
+				<field
+					name="wrap_class"
+					type="text"
+					label="MOD_MULTIBLOCK_WRAP_CLASS"
+					description=""
+					default="" />			
+
+				<field
+					name="wrap_tag"
+					type="list"
+					label="MOD_MULTIBLOCK_WRAP_TAG"
+					description=""
+					default="0"
+					>
+					<option value="div">div</option>
+					<option value="section">section</option>
+					<option value="ul">ul</option>
+					<option value="nav">nav</option>
+				</field>
+
+				<field
+					name="block_tag"
+					type="list"
+					label="MOD_MULTIBLOCK_BLOCK_TAG"
+					description=""
+					default="div"
+					>
+					<option value="div">div</option>
+					<option value="section">section</option>
+					<option value="li">li</option>
+					<option value="p">p</option>
+				</field>
+				
+				<field
+					name="grid_schema"
+					type="list"
+					label="Grid schema"
+					multiple="FALSE"
+					description=""
+					default=""
+					>
+					<option value="">-- select --</option>
+					<option value="4">4 horizontal</option>
+					<option value="3">3 horizontal</option>
+					<option value="2">2 horizontal</option>
+					<option value="2-2">2 horizontal x 2</option>
+					<option value="2-1">2 horizontal + 1</option>
+					<option value="1-2">1 + 2 horizontal</option>
+					<option value="3-1">3 horizontal +1</option>
+					<option value="1-3">1 + 3 horizontal</option>
+				</field>
+
+				<field name="style_schema"
+					type="list"
+					label="Style schema"
+					default="5"
+					>					
+					<option value="4">default</option>	
+					<option value="1">card + body + hover</option>			
+					<option value="2">card + body</option>					
+					<option value="3">card + hover</option>			
+					<option value="5">border</option>				
+				</field>
+					
+				<field
+					name="block_class"
+					type="text"
+					label="Block class"
+					description=""
+					default="" />			
+				
+				<field
+					name="switcher_type"
+					type="list"
+					label="Switchtr type"
+					description=""
+					default="0"
+					>
+					<option value="1">Tabs</option>
+					<option value="0">Buttons</option>
+				</field>	
+				
+			</fieldset>
+			
+			<fieldset name="multi_editors" label="Editors">
+				
+				<field
+					name="note-blocks"
+					type="note"
+					description="MOD_MULTIBLOCK_NOTE_BLOCKS"
+					class="alert alert-primary"
+				/>		
+			
+				<field
+					name="advclass_1"
+					type="text"
+					label="Block class"
+					description=""
+					parentclass="span-1-inline"
+					default="" />			
+			
+				<field
+					name="class_block_1"
+					type="list"
+					label="MOD_MULTIBLOCK_OUTER_CLASS"
+					description=""
+					parentclass="span-1-inline"
+					default="" 
+				>
+				<option value="">none</option>
+				<option value="hors">hors</option>
+				<option value="texture">texture</option>
+				<option value="oranget">oranget</option>
+				<option value="black_white">black_white</option>
+				</field>
+					
+				<field
+					name="include_id_1"
+					type="text"
+					label="MOD_MULTIBLOCK_INCLUDE_ID"
+					parentclass="span-1-inline"
+					description=""
+					default=""/>	
+					
+				<field
+					name="include_width_1"
+					type="text"
+					label="Module width and position"
+					parentclass="span-1-inline"
+					description="1-100, 2-50, 3 -60, 4-40 (- minus left, + right)"
+					default=""/>
+
+				<field
+					name="hide_block_1"
+					type="list"
+					label="MOD_MULTIBLOCK_HIDE"
+					description=""
+					parentclass="span-1-inline"
+					default="0"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+					
+				<field 
+					name="edt_1"
+					type="editor"
+					label="Block 1"
+					required="false"
+					default=""
+					width="100%"
+					height="300"
+					cols="50"
+					rows="10"
+					buttons="true"
+					hide="pagebreaker,readmore"
+					filter="raw">
+				</field>
+				
+				<field
+					name="advclass_2"
+					type="text"
+					label="Block class"
+					description=""
+					parentclass="span-1-inline"
+					default="" />			
+			
+				
+				<field
+					name="class_block_2"
+					type="list"
+					label="MOD_MULTIBLOCK_OUTER_CLASS"
+					description=""
+					parentclass="span-1-inline"
+					default="" 
+				>
+				<option value="">none</option>
+				<option value="hors">hors</option>
+				<option value="texture">texture</option>
+				<option value="oranget">oranget</option>
+				<option value="black_white">black_white</option>
+				</field>	
+		
+			
+				<field
+					name="include_id_2"
+					type="text"
+					label="MOD_MULTIBLOCK_INCLUDE_ID"
+					description=""
+					parentclass="span-1-inline"
+					default="" />			
+			
+				<field
+					name="include_width_2"
+					type="text"
+					label="Module width and position"
+					parentclass="span-1-inline"
+					description="1-100, 2-50, 3 -60, 4-40 (- minus left, + right)"
+					default=""/>
+
+				<field
+					name="hide_block_2"
+					type="list"
+					label="MOD_MULTIBLOCK_HIDE"
+					description=""
+					parentclass="span-1-inline"
+					default="0"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+			
+				<field 
+					name="edt_2"
+					type="editor"
+					label="Block 2"
+					required="false"
+					default=""
+					width="100%"
+					height="300"
+					cols="50"
+					rows="10"
+					buttons="true"
+					hide="pagebreaker,readmore"
+					filter="raw">
+				</field>
+			
+				<field
+					name="advclass_3"
+					type="text"
+					label="Block class"
+					description=""
+					parentclass="span-1-inline"
+					default="" />			
+			
+									
+				
+			
+				<field
+					name="class_block_3"
+					type="list"
+					label="MOD_MULTIBLOCK_OUTER_CLASS"
+					description=""
+					parentclass="span-1-inline"
+					default="" 
+				>
+				<option value="">none</option>
+				<option value="hors">hors</option>
+				<option value="texture">texture</option>
+				<option value="oranget">oranget</option>
+				<option value="black_white">black_white</option>
+				</field>
+
+				<field
+					name="include_id_3"
+					type="text"
+					label="MOD_MULTIBLOCK_INCLUDE_ID"
+					description=""
+					parentclass="span-1-inline"
+					default="" />			
+	
+				<field
+					name="include_width_3"
+					type="text"
+					label="Module width and position"
+					parentclass="span-1-inline"
+					description="1-100, 2-50, 3 -60, 4-40 (- minus left, + right)"
+					default=""/>
+
+				<field
+					name="hide_block_3"
+					type="list"
+					label="MOD_MULTIBLOCK_HIDE"
+					description=""
+					parentclass="span-1-inline"
+					default="0"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				
+				<field 
+					name="edt_3"
+					type="editor"
+					label="Block 3"
+					required="false"
+					default=""
+					width="100%"
+					height="300"
+					cols="50"
+					rows="10"
+					buttons="true"
+					hide="pagebreaker,readmore"
+					filter="raw">
+				</field>
+
+				<field
+					name="advclass_4"
+					type="text"
+					label="Block class"
+					description=""
+					parentclass="span-1-inline"
+					default="" />			
+			
+				<field
+					name="class_block_4"
+					type="list"
+					label="MOD_MULTIBLOCK_OUTER_CLASS"
+					description=""
+					parentclass="span-1-inline"
+					default="" 
+				>
+				<option value="">none</option>
+				<option value="hors">hors</option>
+				<option value="texture">texture</option>
+				<option value="oranget">oranget</option>
+				<option value="black_white">black_white</option>
+				</field>
+			
+				<field
+					name="include_id_4"
+					type="text"
+					label="MOD_MULTIBLOCK_INCLUDE_ID"
+					description=""
+					parentclass="span-1-inline"
+					default="" />			
+
+				<field
+					name="include_width_4"
+					type="text"
+					label="Module width and position"
+					parentclass="span-1-inline"
+					description="1-100, 2-50, 3 -60, 4-40 (- minus left, + right)"
+					default=""/>
+
+				<field
+					name="hide_block_4"
+					type="list"
+					label="MOD_MULTIBLOCK_HIDE"
+					description="0"
+					parentclass="span-1-inline"
+					default=""
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+							
+				<field 
+					name="edt_4"
+					type="editor"
+					label="Block 4"
+					required="false"
+					default=""
+					width="100%"
+					height="300"
+					cols="50"
+					rows="10"
+					buttons="true"
+					hide="pagebreaker,readmore"
+					filter="raw">
+				</field>		
+				
+			</fieldset>			
+
+			<fieldset name="sq4" label="4-squares">
+			
+				<field name="sq1_bg"
+					type="list"
+					label="sq1-background"
+					default=""
+					parentclass="span-1-inline"
+					description="bg-desc">
+					<option value="">None</option>
+					<option value="bg-red uk-light">Red</option>
+					<option value="uk-alert uk-alert-warning">Alert yellow</option>
+					<option value="uk-alert uk-alert-success">Alert green</option>
+					<option value="uk-alert uk-alert-danger">Alert red</option>
+					<option value="bg-light-gray">Light Gray</option>
+					<option value="bg-blue uk-light">Blue</option>
+					<option value="21">Custom *</option>
+				</field>
+				<field name="sq2_bg"
+					type="list"
+					label="sq2-background"
+					parentclass="span-1-inline"
+					default=""
+					description="bg-desc">
+					<option value="">None</option>
+					<option value="bg-red uk-light">Red</option>
+					<option value="uk-alert uk-alert-warning">Alert yellow</option>
+					<option value="uk-alert uk-alert-success">Alert green</option>
+					<option value="uk-alert uk-alert-danger">Alert red</option>
+					<option value="bg-light-gray">Light Gray</option>
+					<option value="bg-blue uk-light">Blue</option>
+					<option value="21">Custom *</option>
+				</field>
+				<field name="sq3_bg"
+					type="list"
+					label="sq3-background"
+					default=""
+					parentclass="span-1-inline"
+					description="bg-desc">
+					<option value="">None</option>
+					<option value="bg-red uk-light">Red2</option>
+					<option value="uk-alert uk-alert-warning">Alert yellow</option>
+					<option value="uk-alert uk-alert-success">Alert green</option>
+					<option value="uk-alert uk-alert-danger">Alert red</option>
+					<option value="uk-alert uk-alert-primary">Alert blue</option>
+					<option value="bg-light-gray">Light Gray</option>
+					<option value="bg-blue uk-light">Blue</option>
+					<option value="21">Custom *</option>
+				</field>
+				
+				<field name="sq4_bg"
+					type="list"
+					label="sq4-background"
+					default=""
+					parentclass="span-1-inline"
+					description="bg-desc">
+					<option value="">None</option>
+					<option value="bg-red uk-light">Red</option>
+					<option value="uk-alert uk-alert-warning">Alert yellow</option>
+					<option value="uk-alert uk-alert-success">Alert green</option>
+					<option value="uk-alert uk-alert-danger">Alert red</option>
+					<option value="bg-light-gray">Light Gray</option>
+					<option value="bg-blue uk-light">Blue</option>
+					<option value="21">Custom *</option>
+				</field>
+				
+				<field name="full_height"
+					type="list"
+					label="Full Height"
+					parentclass="stack span-2-inline"
+					default=""
+					>
+					<option value=" fh">JYES</option>
+					<option value="">JNO</option>					
+				</field>
+					
+				<field name="add_container"
+					type="list"
+					label="Add contanier"
+					parentclass="stack span-2-inline"
+					default=""
+					>
+					<option value=" uk-container">JYES</option>
+					<option value="">JNO</option>					
+				</field>
+										
+				<field name="text_size"
+					type="list"
+					label="Text size"
+					default=""
+					parentclass="stack span-2-inline"
+					description="">
+					<option value="">default</option>
+					<option value="uk-h3">h3</option>
+					<option value="uk-h4">h4</option>
+					<option value="uk-text-large">Text large</option>
+					<option value="uk-text-small">Text small</option>
+					<option value="">Custom*</option>
+				</field>
+					
+			</fieldset>			
+
+			<fieldset name="grid_mode" label="Grid">
+
+				<field
+					name="flex_class"
+					type="list"
+					label="Flex classes"
+					multiple="true"
+					description="MOD_MULTIBLOCK_MULTILIST_DESC"
+					default=""
+					>
+					<option value="">-- select --</option>
+					<option value="uk-flex-wrap">uk-flex-wrap</option>
+					<option value="uk-flex-middle">uk-flex-middle</option>
+					<option value="uk-flex-top">uk-flex-top</option>
+					<option value="uk-flex-bottom">uk-flex-bottom</option>
+					<option value="uk-flex-center">uk-flex-center</option>
+					<option value="uk-flex-around">uk-flex-around</option>
+				</field>
+
+				<field
+					name="grid_class"
+					type="list"
+					label="Grid classes"
+					multiple="true"
+					description="MOD_MULTIBLOCK_MULTILIST_DESC"
+					default=""
+					>
+					<option value="">-- select --</option>
+					<option value="uk-grid-small">uk-grid-small</option>
+					<option value="uk-grid-large">uk-grid-large</option>
+					<option value="uk-grid-margin">uk-grid-margin</option>
+					<option value="uk-grid-divider">uk-grid-divider</option>
+				</field>
+
+				<field
+					name="c_cols_l"
+					type="list"
+					label="Columns 1200"
+					multiple="false"
+					description="MOD_MULTIBLOCK_COLS_DESC"
+					default=""
+					>
+					<option value="">-- select --</option>
+					<option value="4@l ">4</option>
+					<option value="3@l ">3</option>
+					<option value="2@l ">2</option>
+					<option value="1@l ">1</option>
+				</field>
+
+				<field
+					name="c_cols_m"
+					type="list"
+					label="Columns 960"
+					multiple="false"
+					description="MOD_MULTIBLOCK_COLS_DESC"
+					default=""
+					>
+					<option value="">-- select --</option>
+					<option value="4@m ">4</option>
+					<option value="3@m ">3</option>
+					<option value="2@m ">2</option>
+					<option value="1@m ">1</option>
+				</field>
+
+				<field
+					name="c_cols_s"
+					type="list"
+					label="Columns 640"
+					multiple="false"
+					description="MOD_MULTIBLOCK_COLS_DESC"
+					default=""
+					>
+					<option value="">-- select --</option>
+					<option value="3@s ">3</option>
+					<option value="2@s ">2</option>
+					<option value="1@s ">1</option>
+				</field>
+			
+				<field
+					name="match_height"
+					type="radio"
+					layout="joomla.form.field.radio.switcher"
+					label="MOD_MULTIBLOCK_COLS_MATCH_HEIGHT"
+					description=""
+					default="0"
+					filter="integer"
+					>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+			
+			</fieldset>			
+			
+			<fieldset name="advanced">
+				<field
+					name="layout"
+					type="modulelayout"
+					label="JFIELD_ALT_LAYOUT_LABEL"
+					description="JFIELD_ALT_MODULE_LAYOUT_DESC"
+				/>
+								<field
+					name="prepare_content"
+					type="radio"
+					layout="joomla.form.field.radio.switcher"
+					label="Plugins"
+					description="MOD_CUSTOM_FIELD_PREPARE_CONTENT_DESC"
+					default="1"
+					filter="integer"
+					>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				
+			</fieldset>
+		</fields>
+	</config>
+</extension>
