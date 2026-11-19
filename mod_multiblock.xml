@@ -18,6 +18,8 @@
     <languages>
 			<language tag="ru-RU">language/ru-RU/mod_multiblock.ini</language>
 			<language tag="ru-RU">language/ru-RU/mod_multiblock.sys.ini</language>
+			<language tag="en-GB">language/en-GB/mod_multiblock.ini</language>
+			<language tag="en-GB">language/en-GB/mod_multiblock.sys.ini</language>
     </languages>
 	<config>
 		<fields name="params">
